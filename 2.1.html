@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Counter</title>
+    <style>
+        #counter {
+            font-size: 10em;
+            text-align: center;
+            margin-top: 13%;
+        }
+        #start{
+            margin-left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">0</div>
+    <button id = "start" class="button">start</button>
+    <button id = "stop"class="button">stop</button>
+    <button id = "pause"class="button">pause</button>
+    <script>
+
+        let intervalId=null;
+        const counterElement = document.getElementById('counter');      
+        document.getElementById('start').addEventListener('click',starting);
+        document.getElementById('stop').addEventListener('click',stopping);
+        document.getElementById('pause').addEventListener('click',pausing);
+
+
+
+        function starting(){        // Initialize the counter variable
+        let count = 0;
+        function updateCounter() {
+            count++; // Increment the counter
+            counterElement.textContent = count; 
+        }
+        intervalId = setInterval(updateCounter, 1000);
+    }
+
+        function stopping(){
+            // const counterElement = document.getElementById('cunter');
+            clearInterval(intervalId);
+            counterElement.textContent = 0;
+        }
+        function pausing(){
+            // const counterElement = document.getElementById('counter');
+            clearInterval(intervalId);
+        }
+
+    </script>
+</body>
+</html>
